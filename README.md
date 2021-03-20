@@ -11,7 +11,7 @@ To run the development environment for this frontend you will need to have the f
 
 ## Installation
 
-- Clone this repo with git clone `https://aoloyinde@bitbucket.org/flexisaf/safsms.git`
+- Clone this repo with git clone `https://github.com/ijeh-i/rocket-app.git`
 
 ```bash
 #install project dependencies
@@ -44,7 +44,7 @@ Hosting the website on S3 is done in 3 stages:
 
 ### 1. Building and Packaging
 
-    NODE_ENV=production yarn build
+    REACT_APP_ENVIRONMENT=production yarn build
 
 Builds the app for production to the `build` folder.<br>
 It correctly bundles React in production mode and optimizes the build for the best performance.
