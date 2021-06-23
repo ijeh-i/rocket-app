@@ -43,15 +43,12 @@ function createWindow() {
 			enableRemoteModule: true,
 		},
 	});
-	win.loadURL(
-		isDev
-			? 'http://localhost:8000'
-			: `file://${path.join(__dirname, '../build/index.html')}`
-	);
+	win.loadURL( isDev ? 'http://localhost:8000' : `file://${path.join(__dirname, '../build/index.html')}` );
 }
 
 app.on('ready', () => { 
 	// Trigger update check
+	console.log('isDev',isDev);
 	if (isDev) { 
 		autoUpdater.checkForUpdates();
 	}
