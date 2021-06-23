@@ -1,6 +1,6 @@
 {
 	"name": "rocket-app",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"private": true,
 	"dependencies": {
 		"@electron/remote": "^1.0.4",
@@ -14,6 +14,7 @@
 		"dva-loading": "^2.0.5",
 		"dva-model-extend": "^0.1.2",
 		"electron-is-dev": "^2.0.0",
+		"electron-log": "^4.3.5",
 		"electron-updater": "^4.3.9",
 		"moment": "^2.29.1",
 		"path": "^0.12.7",
@@ -46,12 +47,12 @@
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
 		"electron:serve": "concurrently -k \" cross-env BROWSER=none npm start\" \"npm run-script electron:start\"",
-		"electron:build-mac": "REACT_APP_ENVIRONMENT=staging REACT_APP_NATIVE=desktop npm build  && electron-builder -m -c.extraMetadata.main=build/main.js",
-		"electron:build-win": "set \"REACT_APP_ENVIRONMENT=staging\" && set \"REACT_APP_NATIVE=desktop\" && npm build  && electron-builder --win -c.extraMetadata.main=build/main.js",
+		"electron:build-mac": "REACT_APP_ENVIRONMENT=staging REACT_APP_NATIVE=desktop npm run-script build  && electron-builder -m -c.extraMetadata.main=build/main.js",
+		"electron:build-win": "set \"REACT_APP_ENVIRONMENT=staging\" && set \"REACT_APP_NATIVE=desktop\" && npm run-script build  && electron-builder --win -c.extraMetadata.main=build/main.js",
 		"electron:start": "wait-on tcp:8000 && electron ."
 	},
 	"build": {
-		"productName": "Rocket Shop",
+		"productName": "Rocket-Shop",
 		"extends": null,
 		"appId": "com.example.electrong-cra",
 		"publish": [],
@@ -65,10 +66,10 @@
 			"buildResources": "assets"
 		},
 		"mac": {
-			"icon": "public/logo192.png"
+			"icon": "public/logo512.png"
 		},
 		"win": {
-			"icon": "public/logo192.png"
+			"icon": "public/logo512.png"
 		}
 	},
 	"eslintConfig": {
