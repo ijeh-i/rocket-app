@@ -13,7 +13,7 @@ function RouterConfig({ history, app }) {
 		<ConnectedRouter history={history}>
 			<App history={history}>
 				<Switch>
-					<Route
+					<Route 
 						path='/'
 						exact
 						children={({ match, ...rest }) => {
