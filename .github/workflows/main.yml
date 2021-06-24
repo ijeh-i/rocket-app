@@ -1,0 +1,50 @@
+name: Build and release Electron app
+on: push
+jobs: 
+  release-project: 
+    name: Release static site to Github Releases
+    runs-on: mac
+    needs: build-project
+    steps:
+      - name: Download App content
+        uses: actions/download-artifact@v2
+        with: 
+          name: static-app
+      - name: Archive App content
+        uses: thedoctor0/zip-release@master
+        with:
+          filename: 'Rocket-App.zip'
+          exclusions: '*.git* /*node_modules/* .editorconfig'
+      - name: Create Github release 
+        id: create-new-release
+        uses: actions/create-release@v1
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with: 
+          tag_name: v${{ github.run_number }}
+          release_name: Release V${{ github.run_number }}
+      -name: Upload assests to Github release
+        uses: actions/upload-release-asset@v1
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with: 
+          upload_url: ${{ steps.create-new-release.outputs.upload_url }}
+          asset_path: ./Rocket-App.zip
+          asset_name: site-v${{ github.run_number }}
+          asset_content_type: application/zip
+
+  build-project: 
+    naem: Build Electron App
+    runs-on: mac
+    steps: 
+      - name: checkout code
+        uses: actions/checkout@v2
+      - name: Install NPM dependencies
+        uses: npm install
+      - name: Build static app
+        uses: npm run-script electron:build-mac
+      - name: Upload static app
+        uses: actions/upload-artifact@v2
+        with: 
+          name: static-app
+          path: dist/
