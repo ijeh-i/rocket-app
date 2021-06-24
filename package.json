@@ -48,7 +48,7 @@
 		"eject": "react-scripts eject",
 		"electron:serve": "concurrently -k \" cross-env BROWSER=none npm start\" \"npm run-script electron:start\"",
 		"electron:build-mac": "REACT_APP_ENVIRONMENT=staging REACT_APP_NATIVE=desktop npm run-script build  && electron-builder -m -c.extraMetadata.main=build/main.js",
-		"electron:build-win": "set \"CI=false\" && "set \"REACT_APP_ENVIRONMENT=staging\" && set \"REACT_APP_NATIVE=desktop\" && npm run-script build  && electron-builder --win -c.extraMetadata.main=build/main.js",
+		"electron:build-win": "set \"CI=false\" && set \"REACT_APP_ENVIRONMENT=staging\" && set \"REACT_APP_NATIVE=desktop\" && npm run-script build  && electron-builder --win -c.extraMetadata.main=build/main.js",
 		"electron:start": "wait-on tcp:8000 && electron ."
 	},
 	"build": {
