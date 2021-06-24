@@ -3,7 +3,7 @@ on: push
 jobs: 
   release-project: 
     name: Release static site to Github Releases
-    runs-on: mac
+    runs-on: macos-latest
     needs: build-project
     steps:
       - name: Download App content
@@ -35,7 +35,7 @@ jobs:
 
   build-project: 
     name: Build Electron App
-    runs-on: mac
+    runs-on: macos-latest
     steps: 
       - name: checkout code
         uses: actions/checkout@v2
