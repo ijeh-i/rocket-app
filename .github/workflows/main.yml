@@ -34,7 +34,7 @@ jobs:
           asset_content_type: application/zip
 
   build-project: 
-    naem: Build Electron App
+    name: Build Electron App
     runs-on: mac
     steps: 
       - name: checkout code
