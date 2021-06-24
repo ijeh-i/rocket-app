@@ -42,7 +42,7 @@ jobs:
       - name: Install NPM dependencies
         run: npm install
       - name: Build static app
-        run: npm run-script electron:build-mac
+        run: CI=false && npm run-script electron:build-mac
       - name: Upload static app
         uses: actions/upload-artifact@v2
         with: 
