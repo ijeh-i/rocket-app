@@ -26,6 +26,7 @@ autoUpdater.on('downlaod-progress', (progress) => {
 })
 
 autoUpdater.on('update-downloaded', (info) => { 
+		consol.log('info',info);
 		console.log('Update downloaded');
 		autoUpdater.quitAndInstall();
 })
@@ -49,7 +50,7 @@ function createWindow() {
 app.on('ready', () => { 
 	// Trigger update check
 	console.log('isDev',isDev);
-	if (isDev) { 
+	if (!isDev) { 
 		autoUpdater.checkForUpdates();
 	}
 	createWindow()
