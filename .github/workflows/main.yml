@@ -42,7 +42,7 @@ jobs:
       - name: Install NPM dependencies
         run: npm install
       - name: Build static app
-        run: npm run-script electron:build-win
+        run:  npm run-script electron:build-win
       - name: Upload static app
         uses: actions/upload-artifact@v2
         env: 
