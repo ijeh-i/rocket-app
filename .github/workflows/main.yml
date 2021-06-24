@@ -47,6 +47,7 @@ jobs:
         uses: actions/upload-artifact@v2
         env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: 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
         with: 
           name: static-app
           path: dist/
