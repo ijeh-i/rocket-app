@@ -45,6 +45,8 @@ jobs:
         run: CI=false && npm run-script electron:build-mac
       - name: Upload static app
         uses: actions/upload-artifact@v2
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with: 
           name: static-app
           path: dist/
