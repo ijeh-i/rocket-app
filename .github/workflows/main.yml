@@ -3,7 +3,7 @@ on: push
 jobs: 
   release-project: 
     name: Release static site to Github Releases
-    runs-on: macos-latest
+    runs-on: windows-latest
     needs: build-project
     steps:
       - name: Download App content
@@ -35,14 +35,14 @@ jobs:
 
   build-project: 
     name: Build Electron Ap
-    runs-on: macos-latest
+    runs-on: windows-latest
     steps: 
       - name: checkout code
         uses: actions/checkout@v2
       - name: Install NPM dependencies
         run: npm install
       - name: Build static app
-        run: CI=false && npm run-script electron:build-mac
+        run: CI=false && npm run-script electron:build-win
       - name: Upload static app
         uses: actions/upload-artifact@v2
         env: 
